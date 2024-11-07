@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{{ url_for('numeros.register') }}" method="post">
+        <label for="user_id">Usuário:</label>
+        <select class="form-control form-control-sm" id="user_id" name="user_id" required>
+            {% for user in users %}
+                <option value="{{ user.id }}">{{ user.nome }}</option>
+            {% endfor %}
+        </select>
+        <br> 
+        <label for="numero_id">Numero:</label>
+        <input type="number" value="{{request.form['numero']}}" placeholder="Numero" name="numero">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</body>
+</html>
