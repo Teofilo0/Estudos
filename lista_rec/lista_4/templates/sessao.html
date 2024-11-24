@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bem-vindo! Informe seu nome para iniciar a sessão.</h1>
+    <form action="{{ url_for('iniciar_sessao') }}" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome">
+        <br>
+        <label for="idade">Idade</label>
+        <input type="number" name="idade" id="idade">
+        <button type="submit">Iniciar Sessão</button>
+    </form>
+    {% if nome %}
+        <p>Olá, {{ nome }}! A sessão está ativa.</p>
+        <p>Idade {{ idade }}</p>
+    {% endif %}
+    <a href="{{ url_for('limpar_sessao') }}">Sair da Sessão</a>
+
+
+</body>
+</html>
