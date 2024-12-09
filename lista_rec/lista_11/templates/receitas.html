@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Minhas Receitas</h1>
+    {% if erro %}
+        <p style="color: red;">{{ erro }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <label for="title">Título:</label>
+        <input type="text" id="title" name="title" required>
+        <br>
+        <label for="description">Descrição:</label>
+        <textarea id="description" name="description" required>
+        </textarea>
+        <br>
+        <button type="submit">Cadastrar Receita</button>
+    </form>
+    
+    <h2>Receitas Cadastradas</h2>
+    <ul>
+        {% for receita in receitas %}
+            <li><strong>{{ receita[0] }}</strong>: {{ receita[1] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
