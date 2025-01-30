@@ -41,7 +41,6 @@ def verificar_inatividade():
             return redirect(url_for('login'))
     session['last_activity'] = time.time() 
 
-
 @login_manager.user_loader
 def load_user(user_id):
     return User.buscar_por_id(user_id)
