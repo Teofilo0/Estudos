@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cadastrar Livro de Usuário</h1>
+    <form action="{{ url_for('auth.cadastrar_livro_usuario') }}" method="post">
+        <label for="user_id">Selecione o Usuário:</label>
+        <select id="user_id" name="user_id" required>
+            {% for user in users %}
+                <option value="{{ user.id }}">{{ user.nome }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="titulo">Título do Livro:</label>
+        <input type="text" id="titulo" name="titulo" required><br><br>
+        
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>

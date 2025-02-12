@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <nav>
+            <a href="{{ url_for('auth.cadastrar_livro_usuario') }}">Cadastrar Livros de Usuarios</a>
+            <a href="{{ url_for('auth.index') }}">Pagina inicial</a>
+            <a href="{{ url_for('auth.registrar_usuario') }}">Fazer cadastro de Usuarios</a>
+            <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout </a>
+        </nav>
+        <h2>Usuários</h2>
+        <ul>
+            {% for user in users %}
+            <li>
+                <span>Nome:</span> {{ user.nome }}
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Livros</h2>
+        <ul>
+            {% for livro in livros %}
+            <li>
+                <span>Título:</span> {{ livro.titulo }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
